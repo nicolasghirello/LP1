@@ -4,7 +4,7 @@ private:
 
 public:
 	int jogar();
-	int setpontos();
+	int setpontos(int p);
 	int getpontos();
 
 };
