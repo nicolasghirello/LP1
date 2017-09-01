@@ -1,10 +1,10 @@
 class jogador{
-private:
-	int pontos;
+	private:
+		int pontos;
 
-public:
-	int jogar();
-	int setpontos(int p);
-	int getpontos();
-
+	public:
+		int getpontos();
+		int setpontos(int p);
+		jogador();
 };
+
