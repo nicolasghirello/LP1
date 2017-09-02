@@ -5,6 +5,7 @@ class jogador{
 	public:
 		int getpontos();
 		int setpontos(int p);
-		jogador();
+		int jogar(int val);
+		jogador();//construtor não parametrizado
 };
 
