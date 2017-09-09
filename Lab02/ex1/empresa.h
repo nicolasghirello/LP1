@@ -3,6 +3,7 @@
 
 #include <string>
 #include <ostream>
+
 #include "funcionario.h"
 
 using std::string;
@@ -16,13 +17,20 @@ private:
 public:
 	static int nfuncionarios;
 
+	int getnfunc();
+
 	empresa(double _cnpj, string _nome);
 
 	void setnome(string _nome);
 	void setcnpj(double _cnpj);
+	string getnome();
+	double getcnpj();
 
-	void addfuncionario();
+	bool addfuncionario();
 	void listafuncionarios();
+	void listadadosfuncionarios();
+	void aumento(float pc);
+
 
 	friend std::ostream& operator<< (std::ostream &o, empresa const &e);
 	

@@ -13,8 +13,13 @@ private:
 public:
 	static int nempresas;
 
-	bool addempresa(corp &c);
+	bool addempresa();
 	void listaempresas();
+	bool escolherempresa();
+
+	int media();
+
+	bool menuempresa(int ii);
 
 	//sobrecarregar verifica
 	

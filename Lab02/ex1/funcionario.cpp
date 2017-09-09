@@ -9,11 +9,11 @@ using std::string;
 using std::ostream;
 
 
-funcionario::funcionario(){
-	cpf = 0;
-	nome = "nome";
-	salario = 0.0;
-	admissao = "data";
+funcionario::funcionario(double c, string n, float s, string adm){
+	cpf = c;
+	nome = n;
+	salario = s;
+	admissao = adm;
 }
 
 void
@@ -57,12 +57,9 @@ funcionario::getadmissao(){
 	return admissao;
 }
 
-
-
-
-
 ostream&
 operator<< (ostream &o, funcionario const &f) {
 	o << f.nome;
 	return o;
 }
+

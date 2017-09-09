@@ -18,7 +18,7 @@ private:
 
 public:
 
-	funcionario();
+	funcionario(double c, string n, float s, string adm);
 
 	void setcpf(double c);
 	void setnome(string n);
