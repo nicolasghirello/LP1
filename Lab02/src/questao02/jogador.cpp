@@ -19,6 +19,7 @@ using std::string;
  * @details Um jogador é criado com o nome passado como 
  *			parametro e possui valores para pontos 
  *			e verdadeiro para "está no jogo?"
+ * @param	_nome Nome do jogador
  */
 jogador::jogador(string _nome){
 	nome = _nome;

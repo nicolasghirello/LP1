@@ -23,9 +23,11 @@ debug: all
 init:
 	@mkdir -p $(OBJ_DIR)/questao01
 	@mkdir -p $(BIN_DIR)/questao01
+	@mkdir -p $(DOC_DIR)/questao01
 
 	@mkdir -p $(OBJ_DIR)/questao02
 	@mkdir -p $(BIN_DIR)/questao02
+	@mkdir -p $(DOC_DIR)/questao02
 	
 questao01: CFLAGS+= -I$(INC_DIR)/questao01
 questao01: $(OBJ_DIR)/questao01/corp.o $(OBJ_DIR)/questao01/empresa.o $(OBJ_DIR)/questao01/funcionario.o $(OBJ_DIR)/questao01/main.o

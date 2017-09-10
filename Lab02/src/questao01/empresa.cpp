@@ -20,34 +20,39 @@ using std::cin;
 using std::endl;
 using std::ostream;
 
+/**
+ * @details Uma empresa é criada com o cnpj e nome passado como parametro.
+ * @param	_cnpj CNPJ da empresa
+ * @param	_nome Nome da empresa
+ */
 empresa::empresa(double _cnpj, string _nome){
 	cnpj = _cnpj;
 	nome = _nome;
 }
 
-void
-empresa::setnome(string _nome){
-	nome = _nome;
-}
-
-void
-empresa::setcnpj(double _cnpj){
-	cnpj = _cnpj;
-}
-
+/** @return Nome da empresa */
 string
 empresa::getnome(){
 	return nome;
 }
+
+/** @return CNPJ da empresa */
 double
 empresa::getcnpj(){
 	return cnpj;
 }
+
+/** @return Número de funcionários da empresa */
 int 
 empresa::getnfunc(){
 	return nfuncionarios;
 }
 
+/** 
+ * @details Quando invocado, este metodo incrementa o salário
+ *			dos funcionários em uma porcentagem especifica
+ * @param	pc Porcentagem de aumento dos salários
+ */
 void
 empresa::aumento(float pc){
 	for (std::vector<funcionario*>::iterator it = funcionarios.begin(); it < funcionarios.end(); it++){		
@@ -57,7 +62,10 @@ empresa::aumento(float pc){
 }
 
 
-
+/** 
+ * @details Quando invocado, este metodo adiciona um funcionário
+ *			da empresa verificando se esse já existe
+ */
 bool
 empresa::addfuncionario(){
 
@@ -90,6 +98,9 @@ empresa::addfuncionario(){
 	return 1;
 }
 
+/**
+ * @details Imprime a lista de funcionarios de uma empresa
+ */
 void
 empresa::listafuncionarios(){
 	for (std::vector<funcionario*>::iterator it = funcionarios.begin(); it < funcionarios.end(); it++){
@@ -97,6 +108,9 @@ empresa::listafuncionarios(){
 	}
 }
 
+/**
+ * @details Imprime os dados dos funcionarios de uma empresa
+ */
 void
 empresa::listadadosfuncionarios(){
 	cout << "   cpf   |   nome   |   salario   |   admissão" << endl;

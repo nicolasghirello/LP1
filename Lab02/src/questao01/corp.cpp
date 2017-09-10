@@ -1,17 +1,17 @@
 /**
  * @file	corp.cpp
- * @brief	Declaracao dos prototipos de funcoes que determinam o valor de sequencias
- *			com base no numero de termos recursiva e iterativa
+ * @brief	Implementacao dos metodos definidos na classe corp
  * @author	Nicolas Ghirello
  * @since	29/08/2017
  * @date	10/09/2017
+ * @sa		corp.h
  */
 
-#include "corp.h"
 #include <iostream>
 #include <algorithm>
 #include <vector>
 
+#include "corp.h"
 
 using std::cout;
 using std::cin;
@@ -49,6 +49,7 @@ corp::listaempresas(){
 	}
 	cout << endl;
 }
+
 bool
 corp::escolherempresa(){
 	cout << endl << "Digite o numero da empresa para edita-la:" << endl << endl;
@@ -116,9 +117,8 @@ corp::menuempresa(int ii){
 			cout << "digite uma opção válida"<< endl; 
 			break;
 
-			}
+		}
 	}
-	
 }
 
 void
