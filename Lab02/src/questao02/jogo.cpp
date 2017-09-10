@@ -1,6 +1,17 @@
+/**
+ * @file	jogo.cpp
+ * @brief	Declaracao dos prototipos de funcoes que determinam o valor de sequencias
+ *			com base no numero de termos recursiva e iterativa
+ * @author	Nicolas Ghirello
+ * @since	29/08/2017
+ * @date	10/09/2017
+ * @sa		dado.h
+ * @sa		jogo.h
+ * @sa		jogador.h
+ */
+
 #include <iostream>
 #include <sstream>
-#include "dado.h"
 
 using std::cin;
 using std::cout;
@@ -9,34 +20,9 @@ using std::string;
 using std::ostream;
 
 
+#include "dado.h"
 #include "jogo.h"
-void jogador::jogar(){
-	Dado dado1;
-	Dado dado2;
-	pontos = pontos + ((int) dado1 + (int) dado2);
-}
-int jogador::getpontos(){
-	return pontos;
-}
-string jogador::getnome(){
-	return nome;
-}
-
-bool
-jogador::getnojogo(){
-	return nojogo;
-}
-
-jogador::jogador(string _nome){
-	nome = _nome;
-	pontos = 0;
-	nojogo = true;
-}
-
-void
-jogador::parar(){
-	nojogo = false;
-}
+#include "jogador.h"
 
 void
 jogo::addjogador(string _nome){
@@ -56,12 +42,25 @@ jogo::listajogadores(){
 		cout << (**it) << endl;
 	}
 }
+
+void
+jogo::lideranca(){
+	for (std::vector<jogador*>::iterator it = jogadores.begin(); it < jogadores.end(); it++){
+		if ((**it).getpontos() > maiorpontuacao){
+			maiorpontuacao = (**it).getpontos();
+			lider = (**it).getnome();
+		}
+	}
+}
 void
 jogo::vencedor(){
-
 	if(njogadores == 1){
-		cout << "só sobrou!" << (*jogadores.at(0)).getnome() << endl;
-		exit(1);
+		for (std::vector<jogador*>::iterator it = jogadores.begin(); it < jogadores.end(); it++){
+			if ((**it).getnojogo() && (**it).getnome() == lider){
+				cout << "o vencedor é: " << (**it).getnome() << endl;
+				exit(1);
+			}
+		}
 	}else if (njogadores == 0){
 		cout << "todos pararam!" << endl;
 		exit(1);
@@ -124,6 +123,7 @@ jogo::rodada(jogo &p){
 		cout << endl << "Rodada "<< nrodada << endl << endl;
 		int opcao;
 		for (std::vector<jogador*>::iterator it = jogadores.begin(); it < jogadores.end(); it++){		
+			p.lideranca();
 			if ((**it).getnojogo() == true){
 				cout << (**it) << " de "<< teto << endl << "escolha:"<< endl;
 			 	cout << endl << endl <<"(1) jogar" << endl<< "(2) parar" << endl; 
@@ -139,13 +139,16 @@ jogo::rodada(jogo &p){
 								cout << (**it).getnome() << " você perdeu cara :("<< endl;
 								njogadores--;
 								(**it).parar();
+								p.vencedor();
 								break;
 							}
+							p.vencedor();
 							break;
 						case 2:
 							(**it).parar();	
 							cout <<"você parou"<< endl << endl; 
 							njogadores--;
+							p.vencedor();
 							break;
 						default:
 							it--;
@@ -154,8 +157,5 @@ jogo::rodada(jogo &p){
 				}
 			}
 		}
-		vencedor();
-		cout << "chega aqui????";
 	}
-	cout << "resta apenas 1 jogador" << endl;
 }

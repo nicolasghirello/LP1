@@ -1,3 +1,12 @@
+/**
+ * @file	corp.cpp
+ * @brief	Declaracao dos prototipos de funcoes que determinam o valor de sequencias
+ *			com base no numero de termos recursiva e iterativa
+ * @author	Nicolas Ghirello
+ * @since	29/08/2017
+ * @date	10/09/2017
+ */
+
 #include "corp.h"
 #include <iostream>
 #include <algorithm>

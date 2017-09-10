@@ -49,7 +49,7 @@ $(OBJ_DIR)/questao01/main.o: $(SRC_DIR)/questao01/main.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 questao02: CFLAGS+= -I$(INC_DIR)/questao02
-questao02: $(OBJ_DIR)/questao02/jogo.o $(OBJ_DIR)/questao02/dado.o $(OBJ_DIR)/questao02/main.o
+questao02: $(OBJ_DIR)/questao02/jogo.o $(OBJ_DIR)/questao02/dado.o $(OBJ_DIR)/questao02/jogador.o $(OBJ_DIR)/questao02/main.o
 	@echo "============="
 	@echo "Ligando o alvo $@"
 	@echo "============="
@@ -61,6 +61,9 @@ $(OBJ_DIR)/questao02/jogo.o: $(SRC_DIR)/questao02/jogo.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(OBJ_DIR)/questao02/dado.o: $(SRC_DIR)/questao02/dado.cpp
+	$(CC) -c $(CFLAGS) -o $@ $<
+
+$(OBJ_DIR)/questao02/jogador.o: $(SRC_DIR)/questao02/jogador.cpp
 	$(CC) -c $(CFLAGS) -o $@ $<
 
 $(OBJ_DIR)/questao02/main.o: $(SRC_DIR)/questao02/main.cpp
