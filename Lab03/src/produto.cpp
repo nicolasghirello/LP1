@@ -5,7 +5,7 @@ Produto::Produto() {}
 
 Produto::~Produto(){}
 
-Produto::Produto(std::string _codigo, std::string _descricao, short _preco):
+Produto::Produto(std::string _codigo, std::string _descricao, float _preco):
 	m_cod_barras(_codigo), m_descricao(_descricao), m_preco(_preco) {}
 
 std::string 
@@ -18,7 +18,7 @@ Produto::getDescricao() {
 	return m_descricao;
 }
 
-double 
+float 
 Produto::getPreco() {
 	return m_preco;
 }
@@ -34,7 +34,7 @@ Produto::setDescricao(std::string _descricao) {
 }
 
 void 
-Produto::setPreco(double _preco) {
+Produto::setPreco(float _preco) {
 	m_preco = _preco;
 }
 

@@ -1,10 +1,11 @@
 #include <iomanip>
+#include <fstream>
 #include "fruta.h"
 
 Fruta::Fruta() {}
 
-Fruta::Fruta(std::string _codigo, std::string _descricao, short _preco, 
-	std::string _data, short _validade):
+Fruta::Fruta(std::string _codigo, std::string _descricao, float _preco, 
+	std::string _data, int _validade):
 	Produto(_codigo, _descricao, _preco), m_data_lote(_data), m_validade(_validade) {}
 
 Fruta::~Fruta() {}
@@ -14,7 +15,7 @@ Fruta::getDataLote() {
 	return m_data_lote;
 }
 
-short 
+int 
 Fruta::getValidade() {
 	return m_validade;
 }
@@ -25,8 +26,23 @@ Fruta::setDataLote(std::string _data) {
 }
 
 void 
-Fruta::setValidade(short _validade) {
+Fruta::setValidade(int _validade) {
 	m_validade = _validade;
+}
+
+std::istream&
+operator>> (std::istream& is, Fruta& _fruta){
+    if (std::getline(is, _fruta.m_cod_barras, ';')){
+    	std::string token;
+	    std::getline(is, _fruta.m_descricao, ';');
+		std::getline(is, token, ';');
+	    _fruta.m_preco = stof(token);
+		std::getline(is, _fruta.m_data_lote, ';');
+		std::getline(is, token);
+	    _fruta.m_validade = stoi(token);
+    }
+	    
+    return is;
 }
 
 std::ostream& 

@@ -7,21 +7,21 @@ class Produto
 {
 public:
 	Produto();
-	Produto(std::string _codigo, std::string _descricao, short _preco);
+	Produto(std::string _codigo, std::string _descricao, float _preco);
 	virtual ~Produto();
 protected:
 	std::string m_cod_barras;
 	std::string m_descricao;
-	double m_preco;		
+	float m_preco;		
 public:
 	// getters
 	std::string getCodBarras();
 	std::string getDescricao();
-	double getPreco();
+	float getPreco();
 	// setters
 	void setCodBarras(std::string _codigo);
 	void setDescricao(std::string _descricao);
-	void setPreco(double _preco);
+	void setPreco(float _preco);
 	//
 	friend std::ostream& operator<< (std::ostream &o, Produto const &t);  
 private:

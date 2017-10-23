@@ -7,19 +7,17 @@ class Bebida : public Produto
 {
 public:
 	Bebida();
-	Bebida(std::string _codigo, std::string _descricao, short _preco, 
-			std::string _data, short _validade);
+	Bebida(std::string _codigo, std::string _descricao, float _preco, 
+	int _teor);
 	~Bebida();
 private:
-	std::string m_data_lote;
-	short m_validade;
+	int m_teor;
 public:
 	// getters
-	std::string getDataLote();
-	short getValidade();
+	int getTeor();
 	// setters
-	void setDataLote(std::string _data);
-	void setValidade(short _validade);
+	void setTeor(int _teor);
+	friend std::istream& operator>> (std::istream& is, Bebida& _bebida);
 private:
 	std::ostream& print(std::ostream &o) const;
 };

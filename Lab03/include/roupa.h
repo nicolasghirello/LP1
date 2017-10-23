@@ -7,8 +7,8 @@ class Roupa : public Produto
 {
 public:
 	Roupa();
-	Roupa(std::string _codigo, std::string _descricao, short _preco, 
-			std::string _data);
+	Roupa(std::string _codigo, std::string _descricao, float _preco, 
+	std::string _marca, std::string _sexo, std::string _tamanho); 
 	~Roupa();
 private:
 	std::string m_marca;
@@ -24,6 +24,7 @@ public:
 	void setMarca(std::string m_marca);
 	void setSexo(std::string m_sexo);
 	void setTamanho(std::string m_tamanho);
+	friend std::istream& operator>> (std::istream& is, Roupa& _roupa);
 private:
 	std::ostream& print(std::ostream &o) const;
 };
