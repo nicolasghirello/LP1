@@ -11,7 +11,7 @@
 #include <algorithm>
 #include <string> 
 
-#include "pilha.h"
+#include "../include/pilha.h"
 
 using std::endl;
 using std::cout;
