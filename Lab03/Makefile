@@ -27,9 +27,6 @@ init:
 
 questao01: CFLAGS+= -I$(INC_DIR)
 questao01: $(OBJ_DIR)/main.o $(OBJ_DIR)/produto.o $(OBJ_DIR)/bebida.o $(OBJ_DIR)/fruta.o $(OBJ_DIR)/roupa.o
-	@echo "============="
-	@echo "Ligando o alvo $@"
-	@echo "============="
 	$(CC) $(CFLAGS) -o $(BIN_DIR)/lojinha $^
 	@echo "+++ [Executavel lojinha criado em $(BIN_DIR)] +++"
 	@echo "============="
@@ -59,3 +56,4 @@ doc:
 clean:
 	$(RM) $(BIN_DIR)
 	$(RM) $(OBJ_DIR)
+	$(RM) $(DOC_DIR)

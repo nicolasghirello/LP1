@@ -34,8 +34,6 @@ void trataString(string pal, Pilha<char> *um, Pilha<char> *dois){
 	std::transform(pal.begin(), pal.end(), pal.begin(), ::tolower);//deixa lowercase
 	pal.erase(remove_if(pal.begin(), pal.end(), isspace), pal.end());// remove espaços
 	int i = 0;
-	replace(pal.begin(), pal.end(), 'á', 97);
-
 	for ( i = 0; i < pal.length(); i++){
 		um->push(pal[i]);
 	}

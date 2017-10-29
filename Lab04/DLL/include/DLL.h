@@ -4,7 +4,7 @@
 #include <memory>
 #include <ostream>
 
-#include "node.h"
+#include "../include/node.h"
 template <typename T>
 class DLL {
     private:
@@ -20,6 +20,7 @@ class DLL {
     bool empty ();
     bool full ();
     T& top ();
+    void listar();
     int add ( T novo );
     int rem ();
     int size();
@@ -48,9 +49,15 @@ bool DLL<T>::full (){
 
 template <typename T>
 int DLL<T>::add ( T novo ){
-    if (full())
-    return 0;
+    if (full()){
+        return 0;
+    }
     m_elementos[m_tamanho++] = novo;
+    if (size() >= 1){
+        novo.setPrev(m_elementos[m_tamanho - 1]);
+        m_elementos[m_tamanho - 1].setNext(m_elementos[m_tamanho]);
+    }
+
     return 1;
 }
 
@@ -74,6 +81,21 @@ T& DLL<T>::top (){
 template <typename T>
 int DLL<T>::size (){
     return m_tamanho;
+}
+
+template <typename T>
+void DLL<T>::listar (){
+    int i;
+    if (!empty()){
+        for(i = 0; i < size(); i++){
+            if (i > 0 && i < size()){
+                //std::cout <<" <-> ";
+            }
+            std::cout << m_elementos[i];
+        }
+    }else{
+        std::cout << "A lista está vazia" << std::endl;
+    }
 }
 
 #endif
