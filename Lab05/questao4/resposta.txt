@@ -1,0 +1,5 @@
+primeiro é criado um vector col que armazena os os números de 1 a 9, após isso, a função transform
+da biblioteca algorithm percorre o vector col transformando seus valores com auxilio da função square 
+que multiplica o valor recebido por ele mesmo que nesse caso é cada elemento do vector col
+e, com a função back_inserter, que permite inserir ao inves de sobreescrever, insere no vector col2
+os valores já elevados ao quadrado e então, imprime os valores
